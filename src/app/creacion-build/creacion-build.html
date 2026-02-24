@@ -1,0 +1,103 @@
+<div class="create-build-page">
+  <!-- HEADER -->
+  <header class="page-header">
+    <button class="btn-back">← Volver</button>
+
+    <div class="header-content">
+      <h1>Crear Nuevo Build</h1>
+      <p>Diseña y comparte tu build de personaje</p>
+    </div>
+  </header>
+
+  <!-- FORM -->
+  <div class="container">
+    <form>
+      <!-- INFORMACIÓN BÁSICA -->
+      <section class="card">
+        <h2>Información Básica</h2>
+        <p>Datos principales del personaje</p>
+
+        <div class="grid-2">
+          <div>
+            <label>Nombre del Personaje *</label>
+            <input type="text" placeholder="Ej: Raiden Shogun" required />
+          </div>
+
+          <div>
+            <label>Juego *</label>
+            <select required>
+              <option value="">Selecciona un juego</option>
+              <option>Genshin Impact</option>
+              <option>Honkai Star Rail</option>
+              <option>7 Deadly Sins</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <label>Rol *</label>
+            <select required>
+              <option value="">Selecciona un rol</option>
+              <option>DPS</option>
+              <option>Sub DPS</option>
+              <option>Support</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Arma / Equipamiento *</label>
+            <input type="text" placeholder="Ej: Engulfing Lightning" required />
+          </div>
+        </div>
+
+        <div>
+          <label>URL de Imagen</label>
+          <input type="text" placeholder="https://ejemplo.com/imagen.jpg" />
+        </div>
+      </section>
+
+      <!-- ARTEFACTOS -->
+      <section class="card">
+        <h2>Artefactos / Equipamiento</h2>
+        <p>Configura los artefactos del build</p>
+
+        <div class="artifact-item">
+          <input type="text" placeholder="Slot (Ej: Flower)" />
+          <input type="text" placeholder="Nombre del Set" />
+          <input type="text" placeholder="Main Stat (Opcional)" />
+        </div>
+
+        <button type="button" class="btn-outline">+ Agregar Artefacto</button>
+      </section>
+
+      <!-- STATS -->
+      <section class="card">
+        <h2>Estadísticas</h2>
+        <p>Stats recomendadas para este build</p>
+
+        <div class="stat-item">
+          <input type="text" placeholder="Nombre (Ej: CRIT Rate)" />
+          <input type="text" placeholder="Valor (Ej: 65%)" />
+        </div>
+
+        <button type="button" class="btn-outline">+ Agregar Stat</button>
+      </section>
+
+      <!-- NOTAS -->
+      <section class="card">
+        <h2>Notas y Consejos</h2>
+        <textarea
+          rows="6"
+          placeholder="Escribe consejos, prioridades de stats, rotaciones..."
+        ></textarea>
+      </section>
+
+      <!-- BOTONES -->
+      <div class="form-actions">
+        <button type="button" class="btn-outline">Cancelar</button>
+        <button type="submit" class="btn-primary">Crear Build</button>
+      </div>
+    </form>
+  </div>
+</div>

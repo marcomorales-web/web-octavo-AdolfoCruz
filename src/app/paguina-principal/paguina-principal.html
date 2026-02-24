@@ -4,8 +4,6 @@
   <button>+ Crear Build</button>
 </header>
 
-<hr />
-
 <section>
   <input type="text" placeholder="Buscar por personaje o juego..." />
   <select>
@@ -16,65 +14,85 @@
   </select>
 </section>
 
-<hr />
-
 <main>
-  <article>
-    <img src="src/assets/imagen/raiden.jpg" alt="Raiden Shogun" />
-    <p>SUB DPS</p>
-    <h2>Raiden Shogun</h2>
-    <p>Genshin Impact</p>
+  <div class="cards-container">
+    <!-- CARD 1 -->
+    <article class="card">
+      <div class="card-img">
+        <img src="assets/img/raiden.jpg" alt="Raiden Shogun" />
+        <span class="badge">SUB DPS</span>
+        <span class="badge-game">Genshin Impact</span>
+        <div class="card-title">Raiden Shogun</div>
+      </div>
 
-    <p>Arma:</p>
-    <p>Engulfing Lightning</p>
+      <div class="cuerpo-card">
+        <img src="assets/img/dos-espadas.png" alt="arma" />
+        <h4>Arma</h4>
+        <p>Engulfing Lightning</p>
 
-    <p>Equipamiento:</p>
-    <ul>
-      <li>Emblem of Severed Fate</li>
-      <li>Emblem of Severed Fate (+3)</li>
-    </ul>
+        <h4>Equipamiento</h4>
+        <div class="tags">
+          <span class="tag">Emblem of Severed Fate</span>
+          <span class="tag">Emblem of Severed Fate (+3)</span>
+        </div>
+      </div>
 
-    <p>Creado por: Usuario 1</p>
-  </article>
+      <div class="Pie-Card">
+        <span>Usuario 1</span>
+        <span>8 Feb</span>
+      </div>
+    </article>
 
-  <hr />
+    <!-- CARD 2 -->
+    <article class="card">
+      <div class="card-img">
+        <img src="assets/img/Acheron.jpg" alt="Acheron" />
+        <span class="badge">DPS</span>
+        <span class="badge-game">Honkai: Star Rail</span>
+        <div class="card-title">Acheron</div>
+      </div>
 
-  <article>
-    <img src="acheron" alt="Acheron" />
-    <p>DPS</p>
-    <h2>Acheron</h2>
-    <p>Honkai: Star Rail</p>
+      <div class="cuerpo-card">
+        <h4>Arma</h4>
+        <p>Her Signature Light Cone</p>
 
-    <p>Arma:</p>
-    <p>Her Signature Light Cone</p>
+        <h4>Equipamiento</h4>
+        <div class="tags">
+          <span class="tag">Pioneer Diver of Dead Waters</span>
+          <span class="tag">Pioneer Diver of Dead Waters (+4)</span>
+        </div>
+      </div>
 
-    <p>Equipamiento:</p>
-    <ul>
-      <li>Pioneer Diver of Dead Waters</li>
-      <li>Pioneer Diver of Dead Waters (+4)</li>
-    </ul>
+      <div class="Pie-Card">
+        <span>Usuario 2</span>
+        <span>10 Feb</span>
+      </div>
+    </article>
 
-    <p>Creado por: Usuario 2</p>
-  </article>
+    <!-- CARD 3 -->
+    <article class="card">
+      <div class="card-img">
+        <img src="assets/img/escanor.jpg" alt="The One Escanor" />
+        <span class="badge">DPS</span>
+        <span class="badge-game">7 Deadly Sins</span>
+        <div class="card-title">The One Escanor</div>
+      </div>
 
-  <hr />
+      <div class="cuerpo-card">
+        <h4>Arma</h4>
+        <p>Sacred Sword</p>
 
-  <article>
-    <img src="escanor" alt="The One Escanor" />
-    <p>DPS</p>
-    <h2>The One Escanor</h2>
-    <p>7 Deadly Sins: Grand Cross</p>
+        <h4>Equipamiento</h4>
+        <div class="tags">
+          <span class="tag">ATK/DEF Set</span>
+          <span class="tag">+2</span>
+        </div>
+      </div>
 
-    <p>Arma:</p>
-    <p>Sacred Sword</p>
-
-    <p>Equipamiento:</p>
-    <ul>
-      <li>ATK/DEF Set</li>
-      <li>ATK/DEF Set</li>
-      <li>+2</li>
-    </ul>
-
-    <p>Creado por: Usuario 3</p>
-  </article>
+      <div class="Pie-Card">
+        <span>Usuario 3</span>
+        <span>12 Feb</span>
+      </div>
+    </article>
+  </div>
 </main>
