@@ -1,19 +1,18 @@
 <div class="create-build-page">
   <!-- HEADER -->
   <header class="page-header">
-    <button class="btn-back">← Volver</button>
-
-    <div class="header-content">
+    <div class="header-left">
       <h1>Crear Nuevo Build</h1>
-      <p>Diseña y comparte tu build de personaje</p>
+      <p>Paso {{ currentStep }} de 4</p>
     </div>
+
+    <button class="btn-back">← Volver</button>
   </header>
 
-  <!-- FORM -->
   <div class="container">
     <form>
-      <!-- INFORMACIÓN BÁSICA -->
-      <section class="card">
+      <!-- PASO 1 -->
+      <section class="card" *ngIf="currentStep === 1" @fadeSlide>
         <h2>Información Básica</h2>
         <p>Datos principales del personaje</p>
 
@@ -55,10 +54,14 @@
           <label>Imagen del personaje</label>
           <input type="text" placeholder="imagen.jpg" />
         </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn-primary" (click)="nextStep()">Siguiente</button>
+        </div>
       </section>
 
-      <!-- ARTEFACTOS -->
-      <section class="card">
+      <!-- PASO 2 -->
+      <section class="card" *ngIf="currentStep === 2" @fadeSlide>
         <h2>Artefactos / Equipamiento</h2>
         <p>Configura los artefactos del build</p>
 
@@ -69,10 +72,16 @@
         </div>
 
         <button type="button" class="btn-outline">+ Agregar Artefacto</button>
+
+        <div class="form-actions">
+          <button type="button" class="btn-outline" (click)="prevStep()">Atrás</button>
+
+          <button type="button" class="btn-primary" (click)="nextStep()">Siguiente</button>
+        </div>
       </section>
 
-      <!-- STATS -->
-      <section class="card">
+      <!-- PASO 3 -->
+      <section class="card" *ngIf="currentStep === 3" @fadeSlide>
         <h2>Estadísticas</h2>
         <p>Stats recomendadas para este build</p>
 
@@ -82,22 +91,29 @@
         </div>
 
         <button type="button" class="btn-outline">+ Agregar Stat</button>
+
+        <div class="form-actions">
+          <button type="button" class="btn-outline" (click)="prevStep()">Atrás</button>
+
+          <button type="button" class="btn-primary" (click)="nextStep()">Siguiente</button>
+        </div>
       </section>
 
-      <!-- NOTAS -->
-      <section class="card">
+      <!-- PASO 4 -->
+      <section class="card" *ngIf="currentStep === 4" @fadeSlide>
         <h2>Notas y Consejos</h2>
+
         <textarea
           rows="6"
           placeholder="Escribe consejos, prioridades de stats, rotaciones..."
         ></textarea>
-      </section>
 
-      <!-- BOTONES -->
-      <div class="form-actions">
-        <button type="button" class="btn-outline">Cancelar</button>
-        <button type="submit" class="btn-primary">Crear Build</button>
-      </div>
+        <div class="form-actions">
+          <button type="button" class="btn-outline" (click)="prevStep()">Atrás</button>
+
+          <button type="submit" class="btn-primary">Crear Build</button>
+        </div>
+      </section>
     </form>
   </div>
 </div>
