@@ -7,9 +7,10 @@
     </div>
 
     <button class="btn-back">← Volver</button>
+    
   </header>
 
-  <div class="container" [@fadeSlide]="animationDirection">
+  <div class="container" [@fadeSlide]="currentStep">
     <form>
       <!-- PASO 1 -->
       <section class="card" *ngIf="currentStep === 1">

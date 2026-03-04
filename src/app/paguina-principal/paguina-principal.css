@@ -1,3 +1,4 @@
+/* reset */
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +6,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* contenedor cards */
 .cards-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -26,68 +28,179 @@
 }
 
 /* header */
-
-header {
-  padding: 30px 40px 20px;
+.main-header {
+  padding: 25px 40px;
   background-color: #0f172a;
   color: white;
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-header h1 {
-  font-size: 32px;
-  margin-bottom: 5px;
+.header-left h1 {
+  font-size: 28px;
+  margin-bottom: 4px;
 }
 
-header p {
-  opacity: 0.8;
-  font-size: 14px;
+.header-left p {
+  font-size: 13px;
+  opacity: 0.7;
 }
 
-header button {
-  position: absolute;
-  right: 40px;
-  top: 35px;
-  background-color: #111827;
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+/* boton crear */
+.btn-create {
+  background: linear-gradient(135deg, #4338ca, #6366f1);
   color: white;
   border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
+  padding: 10px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.btn-create:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+}
+
+/* icono perfil */
+.profile-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border: 2px solid #6366f1;
+}
+
+.profile-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: white;
+  stroke-width: 2;
+}
+
+.profile-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.6);
+}
+
+/* buscador */
+.search-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 30px 40px;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 14px 18px;
+  border-radius: 40px 0 0 40px;
+  border: 3px solid #4338ca;
+  border-right: none;
+  background: #f8fafc;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-btn {
+  width: 55px;
+  border-radius: 0 40px 40px 0;
+  border: 3px solid #4338ca;
+  border-left: none;
+  background: #4338ca;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-section select {
+  width: 250px;
+  padding: 14px 18px;
+  border-radius: 40px;
+  border: 3px solid #4338ca;
+  background: #f8fafc;
+  font-size: 15px;
+}
+
+.search-box input:focus {
+  box-shadow: 0 0 15px rgba(67, 56, 202, 0.5);
+}
+
+.search-btn {
+  width: 60px;
+  border-radius: 0 40px 40px 0;
+  border: 4px solid #4338ca;
+  border-left: none;
+  background: #4338ca;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: 0.3s ease;
 }
 
-header button:hover {
-  background-color: #1f2937;
+.search-btn svg {
+  width: 24px;
+  height: 24px;
+  stroke: white;
+  stroke-width: 2;
 }
 
-/* buscador */
-
-section {
-  display: flex;
-  gap: 15px;
-  padding: 10px 40px 25px;
+.search-btn:hover {
+  background: #3730a3;
+  transform: scale(1.05);
 }
 
-section input,
-section select {
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
+/* select juegos */
+.search-section select {
+  width: 250px; 
+  max-width: 100%;
+  padding: 14px 18px;
+  border-radius: 40px;
+  border: 3px solid #4338ca;
+  background: #f8fafc;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-sizing: border-box;
 }
 
-section input {
-  flex: 1;
+.search-section select:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(67, 56, 202, 0.4);
 }
 
 main {
   padding: 30px 40px;
+  position: relative;
+  z-index: 1;
 }
 
 /* card */
 .card {
   background: #ffffff;
-  width: 340px;
+  width: 100%;
+  max-width: 340px;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -99,7 +212,7 @@ main {
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
 }
 
-/* imagen */
+/* imagen card */
 .card-img {
   position: relative;
   width: 100%;
@@ -118,12 +231,10 @@ main {
   transition: 0.4s ease;
 }
 
-/* Zoom */
 .card:hover .card-img img {
   transform: scale(1.1);
 }
 
-/* Gradiente */
 .card-img::after {
   content: "";
   position: absolute;
@@ -167,8 +278,7 @@ main {
   color: #111;
 }
 
-/* ocultar cuerpo */
-
+/* ocultar cuerpo card */
 .cuerpo-card,
 .Pie-Card {
   max-height: 0;
@@ -183,8 +293,7 @@ main {
   opacity: 1;
 }
 
-/* contenido */
-
+/* contenido card */
 .cuerpo-card {
   padding: 20px;
 }
@@ -214,8 +323,7 @@ main {
   font-size: 12px;
 }
 
-/*pie de la card*/
-
+/* pie card */
 .Pie-Card {
   border-top: 1px solid #e5e7eb;
   padding: 12px 20px;
@@ -223,4 +331,85 @@ main {
   justify-content: space-between;
   font-size: 13px;
   color: #6b7280;
+}
+
+/* header responsivo */
+@media (max-width: 900px) {
+
+  .main-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px;
+    gap: 15px;
+  }
+
+  .header-left {
+    width: 100%;
+  }
+
+  .header-right {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .main-header {
+    padding: 20px;
+  }
+
+  .header-left h1 {
+    font-size: 22px;
+  }
+
+  .header-left p {
+    font-size: 12px;
+  }
+
+  .btn-create {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+}
+
+/* buscador responsivo */
+@media (max-width: 900px) {
+
+  .search-section {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 25px;
+  }
+
+  .search-box {
+    max-width: 100%;
+  }
+
+  .search-section select {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .search-section {
+    padding: 20px;
+    gap: 18px;
+  }
+
+  .search-box input {
+    font-size: 14px;
+    padding: 12px 16px;
+  }
+
+  .search-btn {
+    width: 50px;
+  }
+
+  .search-section select {
+    font-size: 14px;
+    padding: 12px 16px;
+  }
 }
