@@ -14,17 +14,21 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Logo circular */
 .logo {
-  width: 120px;
-  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px 0;
+}
+
+/* logo circular */
+.logo img {
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
-  border: 4px solid white;
-  margin-bottom: 20px;
-  background-image: url("/assets/imagen/anime.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  object-fit: cover;
+  border: 8px solid white;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 /* Cuadro del formulario */
@@ -36,12 +40,10 @@ h1 {
   border-radius: 10px;
 }
 
-/* Formulario */
 form {
   text-align: left;
 }
 
-/* Inputs */
 input {
   width: 100%;
   padding: 8px;
@@ -51,7 +53,16 @@ input {
 }
 
 /*boton*/
-.btn-gamer {
+.btn-recuperar {
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: #0f3460;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-regresar {
   padding: 8px 18px;
   border-radius: 999px;
   background: #0f3460;
@@ -70,16 +81,4 @@ button:hover {
 
 button:active {
   transform: scale(0.97);
-}
-
-/* Links */
-a {
-  color: #0f3460;
-  font-size: 14px;
-  text-decoration: none;
-}
-
-/* Texto final */
-p {
-  text-align: left;
 }

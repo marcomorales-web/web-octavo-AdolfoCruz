@@ -11,5 +11,6 @@ export const routes: Routes = [
     {path: 'registro', component: Registro },
     {path: 'recuperar-contrasena', component: RecuperarContrasena},
     {path: 'paguina-principal', component: PaguinaPrincipal},
-    { path: 'creacion-build', component: CreacionBuild }
+    { path: 'creacion-build', component: CreacionBuild },
+    { path: '**', redirectTo: '' }
 ];

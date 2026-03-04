@@ -10,30 +10,32 @@ import { trigger, transition, style, animate } from '@angular/animations';
   styleUrls: ['./creacion-build.css'],
   animations: [
     trigger('fadeSlide', [
-      transition(':enter', [
-        style({
-          opacity: 0,
-          transform: 'translateY(30px)'
-        }),
-        animate('600ms ease-out', style({
-          opacity: 1,
-          transform: 'translateY(0)'
-        }))
-      ])
-    ])
-  ]
+      transition('* => next', [
+        style({ transform: 'translateX(100px)', opacity: 0 }),
+        animate('400ms ease-out', style({ transform: 'translateX(0)', opacity: 1 })),
+      ]),
+
+      transition('* => prev', [
+        style({ transform: 'translateX(-100px)', opacity: 0 }),
+        animate('400ms ease-out', style({ transform: 'translateX(0)', opacity: 1 })),
+      ]),
+    ]),
+  ],
 })
 export class CreacionBuild {
   currentStep = 1;
+  animationDirection: 'next' | 'prev' = 'next';
 
   nextStep() {
     if (this.currentStep < 4) {
+      this.animationDirection = 'next';
       this.currentStep++;
     }
   }
 
   prevStep() {
     if (this.currentStep > 1) {
+      this.animationDirection = 'prev';
       this.currentStep--;
     }
   }

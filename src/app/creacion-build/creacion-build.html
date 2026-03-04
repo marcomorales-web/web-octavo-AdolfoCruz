@@ -9,10 +9,10 @@
     <button class="btn-back">← Volver</button>
   </header>
 
-  <div class="container">
+  <div class="container" [@fadeSlide]="animationDirection">
     <form>
       <!-- PASO 1 -->
-      <section class="card" *ngIf="currentStep === 1" @fadeSlide>
+      <section class="card" *ngIf="currentStep === 1">
         <h2>Información Básica</h2>
         <p>Datos principales del personaje</p>
 
@@ -61,7 +61,7 @@
       </section>
 
       <!-- PASO 2 -->
-      <section class="card" *ngIf="currentStep === 2" @fadeSlide>
+      <section class="card" *ngIf="currentStep === 2">
         <h2>Artefactos / Equipamiento</h2>
         <p>Configura los artefactos del build</p>
 
@@ -81,7 +81,7 @@
       </section>
 
       <!-- PASO 3 -->
-      <section class="card" *ngIf="currentStep === 3" @fadeSlide>
+      <section class="card" *ngIf="currentStep === 3">
         <h2>Estadísticas</h2>
         <p>Stats recomendadas para este build</p>
 
@@ -100,7 +100,7 @@
       </section>
 
       <!-- PASO 4 -->
-      <section class="card" *ngIf="currentStep === 4" @fadeSlide>
+      <section class="card" *ngIf="currentStep === 4">
         <h2>Notas y Consejos</h2>
 
         <textarea
