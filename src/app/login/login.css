@@ -3,94 +3,140 @@
   :host {
     display: block;
     min-height: 100vh;
-    background-color: #1a1a2e;
     text-align: center;
-    font-family:cursive;
+    font-family: cursive;
     padding-top: 40px;
   }
 
-  /* Titulo */
+  /* titulo */
   h1 {
     color: white;
     margin-bottom: 20px;
   }
 
-/* contenedor */
-.logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 60px 0;
-}
+  /* logo */
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 0;
+  }
 
-/* logo circular */
-.logo img {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
+  /* logo circular */
+  .logo img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 8px solid white;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  }
 
-  /* Borde blanco */
-  border: 8px solid white;
-
-  /* Sombra elegante */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-}
-
-  /* Cuadro del formulario */
-  .container {
-    background-color: white;
+  /* contenedor login */
+  .login-container {
+    position: relative;
     width: 400px;
     margin: auto;
-    padding: 40px;
+  }
+
+  /* formulario glass */
+  .form-container {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 36px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.08);
   }
 
-  /* Formulario */
-  form {
-    text-align: left;
-  }
-
-  /* Inputs */
-  input {
+  /* inputs */
+  .form-container input {
+    display: block;
+    padding: 14px;
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border-radius: 999px;
+    margin: 20px 0;
+    color: white;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
   }
 
-  /*boton*/
-  .btn-gamer {
-    padding: 8px 18px;
-    border-radius: 999px;
+  /* focus input */
+  .form-container input:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  /* boton */
+  .btn-sesion {
+    width: 100%;
+    padding: 13px;
+    border-radius: 5px;
     background: #0f3460;
     color: white;
     border: none;
     cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
   }
 
-  button {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  button:hover {
+  .btn-sesion:hover {
     transform: scale(1.05);
   }
 
-  button:active {
+  .btn-sesion:active {
     transform: scale(0.97);
   }
 
-  /* Links */
-  a {
-    color: #0f3460;
+  /* links */
+  .link {
+    display: block;
     font-size: 14px;
+    text-decoration: none;
+    color: white;
+    margin-bottom: 15px;
+  }
+
+  /* registro */
+  .register {
+    color: white;
+  }
+
+  /* links dentro del texto */
+  .register a {
+    color: #4ea8ff;
     text-decoration: none;
   }
 
-  /* Texto final */
-  p {
-    text-align: left;
+  /* circulos decorativos */
+  .circle {
+    width: 120px;
+    height: 120px;
+    background: #0f3460;
+    border-radius: 50%;
+    position: absolute;
+  }
+
+  .form-container {
+    z-index: 2;
+  }
+
+  /* circulo arriba */
+  .circle-one {
+    top: 0;
+    left: 0;
+    transform: translate(-40%, -40%);
+  }
+
+  /* circulo abajo */
+  .circle-two {
+    bottom: 0;
+    right: 0;
+    transform: translate(40%, 40%);
   }
 }

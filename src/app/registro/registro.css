@@ -1,75 +1,138 @@
-/* Todo el HTML */
-:host {
-  display: block;
-  min-height: 100vh;
-  background-color: #1a1a2e;
-  text-align: center;
-  font-family:cursive;
-  padding-top: 40px;
-}
+@media screen and (max-width: 1800px) {
+  /* host */
+  :host {
+    display: block;
+    min-height: 100vh;
+    text-align: center;
+    font-family: cursive;
+    padding-top: 40px;
+  }
 
-/* Titulo */
-h1 {
-  color: white;
-  margin-bottom: 20px;
-}
+  /* titulo */
+  h1 {
+    color: white;
+    margin-bottom: 20px;
+  }
 
-/* contenedor */
-.logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 60px 0;
-}
+  /* logo */
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 0;
+  }
 
-/* logo circular */
-.logo img {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 8px solid white;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-}
+  /* logo circular */
+  .logo img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 8px solid white;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  }
 
-/* pagina*/
-.page {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 60px;
-  padding-bottom: 60px;
-  box-sizing: border-box;
-}
+  /* pagina */
+  .page {
+    display: flex;
+    justify-content: center;
+  }
 
-.container {
-  background-color: white;
-  width: 400px;
-  padding: 40px;
-  border-radius: 10px;
-}
+  /* contenedor */
+  .login-container {
+    position: relative;
+    width: 420px;
+  }
 
-/* Formulario */
-form {
-  text-align: left;
-}
+  /* formulario glass */
+  .form-container {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 36px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.08);
+  }
 
-/* Inputs */
-input {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  border-radius: 999px;
-}
+  /* inputs */
+  .form-container input {
+    display: block;
+    padding: 14px;
+    width: 100%;
+    margin: 18px 0;
+    color: white;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+  }
 
-/*boton*/
-.btn-gamer {
-  padding: 8px 18px;
-  border-radius: 999px;
-  background: #0f3460;
-  color: white;
-  border: none;
-  cursor: pointer;
+  /* focus */
+  .form-container input:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .botones {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .botones .btn-gamer {
+    flex: 1;
+  }
+
+  /* boton */
+  .btn-gamer {
+    width: 100%;
+    padding: 13px;
+    border-radius: 5px;
+    background: #0f3460;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .btn-gamer:hover {
+    transform: scale(1.05);
+  }
+
+  .btn-gamer:active {
+    transform: scale(0.97);
+  }
+
+  /* circulos decorativos */
+  .circle {
+    width: 120px;
+    height: 120px;
+    background: #0f3460;
+    border-radius: 50%;
+    position: absolute;
+  }
+
+  .form-container {
+    z-index: 2;
+  }
+
+  /* circulo arriba */
+  .circle-one {
+    top: 0;
+    left: 0;
+    transform: translate(-40%, -40%);
+  }
+
+  /* circulo abajo */
+  .circle-two {
+    bottom: 0;
+    right: 0;
+    transform: translate(40%, 40%);
+  }
 }

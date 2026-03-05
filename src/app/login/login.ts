@@ -23,4 +23,8 @@ import { trigger, transition, style, animate } from '@angular/animations';
     ])
   ]
 })
-export class Login {}
+export class Login {
+  onButtonClick() {
+  alert('¡Botón presionado!');
+}
+}

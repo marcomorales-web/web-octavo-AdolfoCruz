@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-creacion-build',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './creacion-build.html',
   styleUrls: ['./creacion-build.css'],
   animations: [

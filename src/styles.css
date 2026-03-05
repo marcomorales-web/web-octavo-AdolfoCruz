@@ -2,6 +2,7 @@ html, body {
   height: 100%;
   margin: 0;
   overscroll-behavior: none;
+  overscroll-behavior-x: none;
   background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
   font-family: Arial, sans-serif;
 }

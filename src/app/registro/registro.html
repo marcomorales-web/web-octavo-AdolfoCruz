@@ -1,30 +1,42 @@
 <h1>Build De Personajes</h1>
 
 <div class="logo">
-  <Img src="assets/img/anime.jpg" alt="logo" />
+  <img src="assets/img/anime.jpg" alt="logo" />
 </div>
+
 <div class="page">
-  <div class="container" @fadeSlide>
-    <form>
-      <label>Ingrese su nombre:</label>
-      <input type="name" />
+  <div class="login-container" @fadeSlide>
 
-      <label>Ingrese su primer apellido:</label>
-      <input type="name" />
+    <div class="form-container">
+      <form>
 
-      <label>Ingrese su segundo apellido:</label>
-      <input type="name" />
+        <input type="text" placeholder="Ingrese su nombre" />
 
-      <label>Ingrese su correo:</label>
-      <input type="email" />
+        <input type="text" placeholder="Ingrese su primer apellido" />
 
-      <label>Ingrese su contraseña:</label>
-      <input type="password" />
+        <input type="text" placeholder="Ingrese su segundo apellido" />
 
-      <label>Confirme su contraseña:</label>
-      <input type="password" />
+        <input type="email" placeholder="Ingrese su correo" />
 
-      <button class="btn-gamer">Registrarte</button>
-    </form>
+        <input type="password" placeholder="Ingrese su contraseña" />
+
+        <input type="password" placeholder="Confirme su contraseña" />
+
+        <div class="botones">
+          <button class="btn-gamer" routerLink="/login">
+            Regresar
+          </button>
+
+          <button class="btn-gamer" routerLink="/login">
+            Registrarte
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="circle circle-one"></div>
+    <div class="circle circle-two"></div>
+
   </div>
 </div>
