@@ -1,14 +1,11 @@
 @media screen and (max-width: 1800px) {
-  /* Todo el HTML */
   :host {
     display: block;
-    min-height: 100vh;
     text-align: center;
     font-family: cursive;
     padding-top: 40px;
   }
 
-  /* titulo */
   h1 {
     color: white;
     margin-bottom: 20px;
@@ -22,7 +19,6 @@
     margin: 60px 0;
   }
 
-  /* logo circular */
   .logo img {
     width: 160px;
     height: 160px;
@@ -32,14 +28,13 @@
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
   }
 
-  /* contenedor login */
   .login-container {
     position: relative;
     width: 400px;
     margin: auto;
   }
 
-  /* formulario glass */
+  /* formulario vidrio */
   .form-container {
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 36px rgba(0, 0, 0, 0.2);
@@ -63,7 +58,6 @@
     font-size: 15px;
   }
 
-  /* focus input */
   .form-container input:focus {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
@@ -93,7 +87,6 @@
     transform: scale(0.97);
   }
 
-  /* links */
   .link {
     display: block;
     font-size: 14px;
@@ -103,12 +96,20 @@
   }
 
   /* registro */
-  .register {
+  .registro {
     color: white;
   }
 
-  /* links dentro del texto */
-  .register a {
+  .registro a {
+    color: #4ea8ff;
+    text-decoration: none;
+  }
+
+  .recuperar-contrasena {
+    color: white;
+  }
+
+  .recuperar-contrasena a {
     color: #4ea8ff;
     text-decoration: none;
   }
@@ -126,14 +127,12 @@
     z-index: 2;
   }
 
-  /* circulo arriba */
   .circle-one {
     top: 0;
     left: 0;
     transform: translate(-40%, -40%);
   }
 
-  /* circulo abajo */
   .circle-two {
     bottom: 0;
     right: 0;

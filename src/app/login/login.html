@@ -8,6 +8,7 @@
 <!-- CONTENEDOR LOGIN -->
 <div class="login-container" @fadeSlide>
   <div class="circle circle-one"></div>
+  <div class="circle circle-two"></div>
 
   <div class="form-container">
     <form>
@@ -15,16 +16,18 @@
 
       <input type="password" placeholder="Ingrese su contraseña" />
 
-      <a routerLink="/recuperar-contrasena" class="link"> Olvidé contraseña </a>
+      <p class="recuperar-contrasena">
+        ¿Olvido su contraseña?
+      <a routerLink="/recuperar-contrasena" class="link"> Recuperar contraseña </a>
+      </p>
 
       <button class="btn-sesion" routerLink="/paguina-principal">Iniciar Sesión</button>
 
-      <p class="register">
+      <p class="registro">
         ¿No tienes cuenta?
         <a routerLink="/registro">Regístrate aquí</a>
       </p>
     </form>
   </div>
 
-  <div class="circle circle-two"></div>
 </div>

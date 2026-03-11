@@ -9,4 +9,14 @@ import { RouterModule } from '@angular/router';
 })
 export class PaguinaPrincipal {
 
+  hoverIndex: number | null = null;
+
+  activar(index: number) {
+    this.hoverIndex = index;
+  }
+
+  desactivar() {
+    this.hoverIndex = null;
+  }
+
 }
