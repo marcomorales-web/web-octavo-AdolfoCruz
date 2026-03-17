@@ -1,0 +1,168 @@
+<header class="main-header">
+  <div class="header-left">
+    <h1>Character Builds</h1>
+    <p>Descubre y compara builds de tus personajes favoritos</p>
+  </div>
+
+  <div class="header-right">
+    <button class="btn-create" routerLink="/creacion-build">+ Crear Build</button>
+
+    <div class="profile-icon" (click)="togglePerfil()">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 12c2.7 0 4.5-2 4.5-4.5S14.7 3 12 3 7.5 5 7.5 7.5 9.3 12 12 12z" />
+        <path d="M4 20c0-3.5 3.5-6 8-6s8 2.5 8 6" />
+      </svg>
+    </div>
+  </div>
+</header>
+
+<section class="search-section">
+  <div class="search-box">
+    <input type="text" placeholder="Buscar por personaje o juego..." />
+    <button class="search-btn">
+      <svg viewBox="0 0 24 24" fill="none">
+        <circle cx="11" cy="11" r="7" />
+        <line x1="16.65" y1="16.65" x2="21" y2="21" />
+      </svg>
+    </button>
+  </div>
+
+  <select>
+    <option>Todos los juegos</option>
+    <option>Genshin Impact</option>
+    <option>Honkai: Star Rail</option>
+    <option>7 Deadly Sins</option>
+  </select>
+</section>
+
+<main>
+  <div class="cards-container">
+    <!-- CARD 1 -->
+    <article
+      class="card"
+      routerLink="/build-info"
+      (mouseenter)="activar(0)"
+      (mouseleave)="desactivar()"
+      [class.hover]="hoverIndex === 0"
+    >
+      <img src="assets/img/raiden-shogun.png" class="character" />
+
+      <div class="card-img">
+        <div class="wrapper">
+          <img src="assets/img/raiden.png" class="cover-image" alt="Raiden Shogun" />
+        </div>
+
+        <span class="badge">SUB DPS</span>
+        <span class="badge-game">Genshin Impact</span>
+        <div class="card-title">Raiden Shogun</div>
+      </div>
+
+      <div class="cuerpo-card">
+        <img src="assets/img/dos-espadas.png" alt="arma" />
+
+        <h4>Arma</h4>
+        <p>Engulfing Lightning</p>
+
+        <h4>Equipamiento</h4>
+
+        <div class="tags">
+          <span class="tag">Emblem of Severed Fate</span>
+          <span class="tag">Emblem of Severed Fate (+3)</span>
+        </div>
+      </div>
+
+      <div class="Pie-Card">
+        <span>Usuario 1:</span>
+        <span>8 Feb</span>
+      </div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article
+      class="card"
+      (mouseenter)="activar(1)"
+      (mouseleave)="desactivar()"
+      [class.hover]="hoverIndex === 1"
+    >
+      <img src="assets/img/acheron_render.png" class="character" />
+
+      <div class="card-img">
+        <div class="wrapper">
+          <img src="assets/img/Acheron.jpg" class="cover-image" alt="Acheron" />
+        </div>
+
+        <span class="badge">DPS</span>
+        <span class="badge-game">Honkai: Star Rail</span>
+        <div class="card-title">Acheron</div>
+      </div>
+
+      <div class="cuerpo-card">
+        <h4>Arma</h4>
+        <p>Her Signature Light Cone</p>
+
+        <h4>Equipamiento</h4>
+
+        <div class="tags">
+          <span class="tag">Pioneer Diver of Dead Waters</span>
+          <span class="tag">Pioneer Diver of Dead Waters (+4)</span>
+        </div>
+      </div>
+
+      <div class="Pie-Card">
+        <span>Usuario 2:</span>
+        <span>10 Feb</span>
+      </div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article
+      class="card"
+      (mouseenter)="activar(2)"
+      (mouseleave)="desactivar()"
+      [class.hover]="hoverIndex === 2"
+    >
+      <img src="assets/img/Escanor-TheOne.png" class="character" />
+
+      <div class="card-img">
+        <div class="wrapper">
+          <img src="assets/img/escanor.jpg" class="cover-image" alt="Escanor" />
+        </div>
+
+        <span class="badge">DPS</span>
+        <span class="badge-game">7 Deadly Sins</span>
+        <div class="card-title">The One Escanor</div>
+      </div>
+
+      <div class="cuerpo-card">
+        <h4>Arma</h4>
+        <p>Sacred Sword</p>
+
+        <h4>Equipamiento</h4>
+
+        <div class="tags">
+          <span class="tag">ATK/DEF Set</span>
+          <span class="tag">+2</span>
+        </div>
+      </div>
+
+      <div class="Pie-Card">
+        <span>Usuario 3:</span>
+        <span>12 Feb</span>
+      </div>
+    </article>
+  </div>
+</main>
+
+<!-- perfil -->
+<div class="overlay" *ngIf="mostrarPerfil">
+  <div class="perfil-modal">
+    <button class="cerrar" (click)="togglePerfil()">✖</button>
+
+    <div class="perfil-info">
+      <h2>{{ usuario?.nombre }}</h2>
+      <p>{{ usuario?.correo }}</p>
+    </div>
+
+    <button class="logout" (click)="logout()">Cerrar sesión</button>
+  </div>
+</div>

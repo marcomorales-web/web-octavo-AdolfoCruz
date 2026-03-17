@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { Login } from './login/login';
-import { Registro } from './registro/registro';
-import { RecuperarContrasena } from './recuperar-contrasena/recuperar-contrasena';
-import { PaguinaPrincipal } from './paguina-principal/paguina-principal';
-import { CreacionBuild } from './creacion-build/creacion-build';
-import { BuildInfo } from './build-info/build-info';
+import { Login } from './auth/login/login';
+import { Registro } from './auth/registro/registro';
+import { RecuperarContrasena } from './auth/recuperar-contrasena/recuperar-contrasena';
+import { PaguinaPrincipal } from './pages/paguina-principal/paguina-principal';
+import { CreacionBuild } from './pages/creacion-build/creacion-build';
+import { BuildInfo } from './pages/build-info/build-info';
 
 export const routes: Routes = [
     {path: '', component: Login },

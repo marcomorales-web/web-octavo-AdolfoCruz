@@ -96,6 +96,91 @@
   box-shadow: 0 0 12px rgba(99, 102, 241, 0.6);
 }
 
+/* overlay sin fondo oscuro */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+
+/* modal */
+.perfil-modal {
+  position: absolute;
+  top: 80px;      /* debajo del header */
+  right: 30px;    /* alineado derecha */
+  width: 260px;
+
+  background: #0f172a;
+  color: white;
+  border-radius: 14px;
+  padding: 20px;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+
+  animation: fadeDown 0.25s ease;
+}
+
+/* animación */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* botón cerrar */
+.cerrar {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* info usuario */
+.perfil-info {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.perfil-info h2 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.perfil-info p {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* botón logout */
+.logout {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #ef4444;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.logout:hover {
+  background: #dc2626;
+}
+
 /* buscador */
 .search-section {
   display: flex;

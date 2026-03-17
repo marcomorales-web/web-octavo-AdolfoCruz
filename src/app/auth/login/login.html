@@ -1,27 +1,30 @@
 <h1>Build De Personajes</h1>
 
-<!-- LOGO -->
 <div class="logo">
   <img src="assets/img/anime.jpg" alt="logo" />
 </div>
 
-<!-- CONTENEDOR LOGIN -->
 <div class="login-container" @fadeSlide>
   <div class="circle circle-one"></div>
   <div class="circle circle-two"></div>
 
   <div class="form-container">
-    <form>
-      <input type="email" placeholder="Ingrese su correo" />
+    <form (submit)="$event.preventDefault()">
+      <input type="email" placeholder="Ingrese su correo" [(ngModel)]="correo" name="correo" />
 
-      <input type="password" placeholder="Ingrese su contraseña" />
+      <input
+        type="password"
+        placeholder="Ingrese su contraseña"
+        [(ngModel)]="password"
+        name="password"
+      />
 
       <p class="recuperar-contrasena">
         ¿Olvido su contraseña?
-      <a routerLink="/recuperar-contrasena" class="link"> Recuperar contraseña </a>
+        <a routerLink="/recuperar-contrasena" class="link"> Recuperar contraseña </a>
       </p>
 
-      <button class="btn-sesion" routerLink="/paguina-principal">Iniciar Sesión</button>
+      <button class="btn-sesion" (click)="onLogin()">Iniciar Sesión</button>
 
       <p class="registro">
         ¿No tienes cuenta?
@@ -29,5 +32,4 @@
       </p>
     </form>
   </div>
-
 </div>

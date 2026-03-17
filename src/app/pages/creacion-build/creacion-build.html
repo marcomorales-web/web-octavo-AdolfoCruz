@@ -1,0 +1,73 @@
+<div class="build-page">
+  <div class="left-column">
+    <div id="wrap">
+      <!-- Radios para control -->
+      <input type="radio" name="rad" class="trigger" id="card1" checked />
+      <input type="radio" name="rad" class="trigger" id="card2" />
+      <input type="radio" name="rad" class="trigger" id="card3" />
+      <input type="radio" name="rad" class="trigger" id="card4" />
+
+      <div class="innerwrap">
+        <div class="cards">
+          <div class="cardwrap">
+            <div class="card"><div class="inner"><h1>Información Básica</h1></div></div>
+          </div>
+          <div class="cardwrap">
+            <div class="card"><div class="inner"><h1>Artefactos / Equipamiento</h1></div></div>
+          </div>
+          <div class="cardwrap">
+            <div class="card"><div class="inner"><h1>Estadísticas</h1></div></div>
+          </div>
+          <div class="cardwrap">
+            <div class="card"><div class="inner"><h1>Notas y Consejos</h1></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Forms dentro del wrap -->
+      <div class="right-column">
+        <form id="buildForm">
+          <section class="form-step" id="form1">
+            <h2>Información Básica</h2>
+            <div>
+              <label>Nombre del Personaje *</label>
+              <input type="text" placeholder="Ej: Raiden Shogun" />
+            </div>
+            <div>
+              <label>Juego *</label>
+              <select>
+                <option value="">Selecciona un juego</option>
+                <option>Genshin Impact</option>
+                <option>Honkai Star Rail</option>
+                <option>7 Deadly Sins</option>
+              </select>
+            </div>
+          </section>
+
+          <section class="form-step" id="form2">
+            <h2>Artefactos / Equipamiento</h2>
+            <div>
+              <input type="text" placeholder="Slot (Ej: Flower)" />
+              <input type="text" placeholder="Nombre del Set" />
+              <input type="text" placeholder="Stat principal" />
+            </div>
+          </section>
+
+          <section class="form-step" id="form3">
+            <h2>Estadísticas</h2>
+            <div>
+              <input type="text" placeholder="Nombre (Ej: CRIT Rate)" />
+              <input type="text" placeholder="Valor (Ej: 65%)" />
+            </div>
+          </section>
+
+          <section class="form-step" id="form4">
+            <h2>Notas y Consejos</h2>
+            <textarea rows="6" placeholder="Escribe consejos, prioridades de stats..."></textarea>
+          </section>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
