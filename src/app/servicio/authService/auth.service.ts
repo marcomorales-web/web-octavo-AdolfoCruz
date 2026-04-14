@@ -13,7 +13,7 @@ export class AuthService {
 
   constructor() {}
 
-  // helper: verificar navegador
+  // verificar navegador
   private isBrowser(): boolean {
     return isPlatformBrowser(this.platformId);
   }

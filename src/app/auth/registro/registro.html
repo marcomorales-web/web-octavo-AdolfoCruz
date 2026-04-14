@@ -10,7 +10,7 @@
     <div class="circle circle-two"></div>
 
     <div class="form-container">
-      <form (submit)="$event.preventDefault()">
+      <form (ngSubmit)="registrar()">
         <input
           type="text"
           placeholder="Ingrese su nombre"
@@ -54,9 +54,9 @@
         />
 
         <div class="botones">
-          <button class="btn-gamer" routerLink="/login">Regresar</button>
+          <button type="button" class="btn-gamer" routerLink="/login">Regresar</button>
 
-          <button class="btn-gamer" (click)="registrar()">Registrarte</button>
+          <button type="submit" class="btn-gamer">Registrarte</button>
         </div>
       </form>
     </div>
