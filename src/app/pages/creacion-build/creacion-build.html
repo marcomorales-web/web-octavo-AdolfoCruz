@@ -1,19 +1,15 @@
 <div class="build-page">
+  <button class="btn-back" routerLink="/paguina-principal">← Volver</button>
+
   <div class="left-column">
     <div class="cards-container">
-      
       <div class="wheel" [style.top]="-(currentStep * 600) + 'px'">
-        
         <div class="cardwrap" *ngFor="let card of cards; let i = index">
-          
           <div class="card" [class.active]="i === currentStep">
-            
             <h2>0{{ i + 1 }}</h2>
             <p>{{ card }}</p>
-            
           </div>
         </div>
-        
       </div>
     </div>
   </div>
@@ -21,48 +17,158 @@
   <div class="right-column">
     <section *ngIf="currentStep === 0" class="form-step">
       <h2>Información Básica</h2>
-      <input [(ngModel)]="personaje" placeholder="Nombre del personaje" />
-      <select [(ngModel)]="juego" (change)="onJuegoChange()">
-        <option value="">Selecciona un juego</option>
-        <option>Genshin Impact</option>
-        <option>Honkai Star Rail</option>
-      </select>
-      <button (click)="nextStep()">Siguiente</button>
+      <div class="input-group">
+        <label>Personaje</label>
+        <input [(ngModel)]="personaje" placeholder="Nombre" />
+      </div>
+
+      <div class="input-group">
+        <label>Juego</label>
+        <input [(ngModel)]="juego" (change)="onJuegoChange()" list="lista-juegos" />
+        <datalist id="lista-juegos">
+          <option value="Genshin Impact"></option>
+          <option value="Honkai Star Rail"></option>
+        </datalist>
+      </div>
+
+      <div class="input-group">
+        <label>Tipo de Arma / Vía</label>
+        <input [(ngModel)]="tipoArma" (change)="filtrarArmasPorTipo()" list="lista-tipos-arma" />
+        <datalist id="lista-tipos-arma">
+          <ng-container *ngIf="juego === 'Genshin Impact'">
+            <option value="sword">Espada</option>
+            <option value="claymore">Mandoble</option>
+            <option value="polearm">Lanza</option>
+            <option value="bow">Arco</option>
+            <option value="catalyst">Catalizador</option>
+          </ng-container>
+          <ng-container *ngIf="juego === 'Honkai Star Rail'">
+            <option value="Destruction">Destrucción</option>
+            <option value="The Hunt">Cacería</option>
+            <option value="Erudition">Erudición</option>
+            <option value="Harmony">Armonía</option>
+            <option value="Nihility">Nihilidad</option>
+            <option value="Preservation">Preservación</option>
+            <option value="Abundance">Abundancia</option>
+          </ng-container>
+        </datalist>
+      </div>
+
+      <div class="input-group">
+        <label>Imagen Splash (URL)</label>
+        <input [(ngModel)]="imageUrl" placeholder="URL de imagen" />
+      </div>
+
+      <button (click)="nextStep()" class="btn-next">Siguiente</button>
     </section>
 
     <section *ngIf="currentStep === 1" class="form-step">
-      <h2>Equipamiento</h2>
-      <div *ngFor="let eq of equipamientos; let i = index" class="equip-item">
-        <input [(ngModel)]="eq.slot" placeholder="Slot" style="flex: 1;" readonly />
-        <input [(ngModel)]="eq.nombre" placeholder="Item" style="flex: 2;" />
-        <input [(ngModel)]="eq.stat" placeholder="Stat" style="flex: 1;" />
+      <div class="section-container">
+        <h2 class="section-title">Arma / Cono</h2>
+        <div class="equip-item-row weapon-row">
+          <div class="artifact-preview">
+            <img
+              *ngIf="armaPrincipal"
+              [src]="getImageUrl(armaPrincipal, 'arma')"
+              (error)="updateUrl($event)"
+            />
+            <span *ngIf="!armaPrincipal">?</span>
+          </div>
+          <div class="custom-dropdown">
+            <input
+              [(ngModel)]="armaPrincipal"
+              (input)="buscarArma()"
+              (focus)="toggleDropdown(-1, $event)"
+              class="input-dropdown-manual"
+              placeholder="Buscar..."
+            />
+            <div class="dropdown-options-container" *ngIf="dropdownAbierto === -1">
+              <div
+                class="option-item"
+                *ngFor="let arma of listaArmasBusqueda"
+                (click)="seleccionarArma(arma)"
+              >
+                <img
+                  [src]="getImageUrl(arma, 'arma')"
+                  class="mini-art"
+                  (error)="updateUrl($event)"
+                />
+                <span>{{ formatName(arma) }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <button (click)="agregarEquipamiento()">+ Agregar</button>
+
+      <div class="section-container">
+        <h2 class="section-title">Equipamiento</h2>
+        <div *ngFor="let eq of equipamientos; let i = index" class="equip-item-row">
+          <div class="artifact-preview">
+            <img
+              *ngIf="eq.nombre"
+              [src]="getImageUrl(eq.nombre, 'artefacto')"
+              (error)="updateUrl($event)"
+            />
+            <span *ngIf="!eq.nombre">?</span>
+          </div>
+          <div class="fields-column">
+            <input [(ngModel)]="eq.slot" class="slot-label" readonly />
+            <div class="custom-dropdown">
+              <input
+                [(ngModel)]="eq.nombre"
+                (input)="buscarArtefacto(i)"
+                (focus)="toggleDropdown(i, $event)"
+                class="input-dropdown-manual"
+                placeholder="Set..."
+              />
+              <div class="dropdown-options-container" *ngIf="dropdownAbierto === i">
+                <div
+                  class="option-item"
+                  *ngFor="let art of listaArtifactosBusqueda"
+                  (click)="seleccionarSet(art, i)"
+                >
+                  <img
+                    [src]="getImageUrl(art, 'artefacto')"
+                    class="mini-art"
+                    (error)="updateUrl($event)"
+                  />
+                  <span>{{ formatName(art) }}</span>
+                </div>
+              </div>
+            </div>
+            <input [(ngModel)]="eq.stat" placeholder="Stat principal" class="stat-input" />
+          </div>
+          <button (click)="eliminarEquipamiento(i)" class="btn-delete-small">×</button>
+        </div>
+        <button (click)="agregarEquipamiento()" class="btn-add">+ Pieza Extra</button>
+      </div>
+
       <div class="nav-buttons">
-        <button (click)="prevStep()">Atras</button>
-        <button (click)="nextStep()">Siguiente</button>
+        <button (click)="prevStep()" class="btn-nav">Atrás</button>
+        <button (click)="nextStep()" class="btn-nav">Siguiente</button>
       </div>
     </section>
 
     <section *ngIf="currentStep === 2" class="form-step">
-      <h2>Stats</h2>
+      <h2>Stats Finales</h2>
       <div *ngFor="let stat of stats; let i = index" class="stat-item">
         <input [(ngModel)]="stat.nombre" placeholder="Stat" />
         <input [(ngModel)]="stat.valor" placeholder="Valor" />
+        <button (click)="eliminarStat(i)" class="btn-delete-small">×</button>
       </div>
-      <button (click)="agregarStat()">+ Agregar</button>
+      <button (click)="agregarStat()" class="btn-add">+ Agregar Stat</button>
       <div class="nav-buttons">
-        <button (click)="prevStep()">Atras</button>
-        <button (click)="nextStep()">Siguiente</button>
+        <button (click)="prevStep()" class="btn-nav">Atrás</button>
+        <button (click)="nextStep()" class="btn-nav">Siguiente</button>
       </div>
     </section>
 
     <section *ngIf="currentStep === 3" class="form-step">
-      <h2>Notas</h2>
-      <textarea [(ngModel)]="notas"></textarea>
+      <h2>Notas y Consejos</h2>
+      <textarea [(ngModel)]="notas" placeholder="Escribe recomendaciones..."></textarea>
       <div class="nav-buttons">
-        <button (click)="prevStep()">Atras</button>
-        <button (click)="guardarBuild()">Guardar</button>
+        <button (click)="prevStep()" class="btn-nav">Atrás</button>
+        <button (click)="guardarBuild()" class="btn-save">Guardar Build</button>
       </div>
     </section>
   </div>

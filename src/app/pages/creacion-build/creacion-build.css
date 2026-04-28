@@ -9,15 +9,30 @@
   box-sizing: border-box;
 }
 
-
-.left-column,
-.right-column {
+.left-column, .right-column {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.btn-back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  backdrop-filter: blur(6px);
+  transition: 0.3s;
+}
+
+/* Contenedor de Cartas */
 .cards-container {
   width: 500px; 
   height: 600px; 
@@ -37,6 +52,7 @@
   left: 0;
   top: 0;
   transition: top 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  perspective: 1000px;
 }
 
 .cardwrap {
@@ -48,88 +64,280 @@
 }
 
 .card {
-  width: 400px;
-  height: 500px;
-  border-radius: 30px;
+  width: 380px;
+  height: 480px;
+  border-radius: 20px;
   padding: 40px;
-  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
   background: #334155;
   opacity: 0.1;
   transition: transform 0.4s ease, opacity 0.4s ease;
   box-sizing: border-box;
   position: relative;
   transform: perspective(1000px) rotateX(10deg);
+  background: linear-gradient(135deg, #111 0%, #000 100%);
+  border: 1px solid rgba(255, 70, 85, 0.2);
+  box-shadow: 0 0 30px rgba(255, 70, 85, 0.15);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;
+  transform: perspective(1000px) rotateX(15deg) scale(0.9);
+  opacity: 0.15;
+}
+
+.card.active {
+  opacity: 1;
+  z-index: 10;
+  transform: perspective(1000px) rotateX(0deg) scale(1); 
+  background: linear-gradient(to bottom, #ff4655 0%, #ff1f71 100%); 
+  border: none;
 }
 
 .card h2 {
   margin: 0;
   font-size: 8em;
   font-weight: 900;
-  color: rgba(0,0,0,0.5);
+  color: rgba(255, 255, 255, 0.1);
   text-align: right;
   line-height: 0.8;
+  font-family: 'Segoe UI', Roboto, Helvetica, sans-serif; 
 }
+
+.card.active h2 {
+  color: rgba(0, 0, 0, 0.15);
+}
+
 
 .card p {
   margin: 0;
-  font-size: 2.5em;
+  font-size: 2.2em;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: -1px;
+  font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
-.card.active {
-  opacity: 1;
-  z-index: 10;
-  transform: perspective(1000px) rotateX(0deg) scale(1.1);
+.card.active p {
+  color: #fff;
+  text-shadow: 0 0 20px #fff;
 }
 
-
-.cards-container::before,
-.cards-container::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 120px;
-  left: 0;
-  z-index: 20;
-  pointer-events: none;
-}
-
-.cards-container::before {
-  top: 0;
-  background: linear-gradient(to bottom, #0f172a 0%, transparent 100%);
-}
-
-.cards-container::after {
-  bottom: 0;
-  background: linear-gradient(to top, #0f172a 0%, transparent 100%);
-}
+/* Colores de las cartas */
+.cardwrap:nth-child(1) .card { background: #32cbfb; color: #0f172a; }
+.cardwrap:nth-child(2) .card { background: #fc3359; color: white; }
+.cardwrap:nth-child(3) .card { background: #fefb3a; color: #0f172a; }
+.cardwrap:nth-child(4) .card { background: #34d399; color: #0f172a; }
 
 .cardwrap:nth-child(1) .card { background: #32cbfb; color: #0f172a; }
 .cardwrap:nth-child(2) .card { background: #fc3359; color: white; }
 .cardwrap:nth-child(3) .card { background: #fefb3a; color: #0f172a; }
 .cardwrap:nth-child(4) .card { background: #34d399; color: #0f172a; }
-.cardwrap:nth-child(odd) .card h2 { color: rgba(0,0,0,0.3); }
-.cardwrap:nth-child(even) .card h2 { color: rgba(0,0,0,0.4); }
 
 .form-step {
   background: #1e293b;
   padding: 30px;
   border-radius: 20px;
   width: 100%;
-  max-width: 500px;
+  max-width: 850px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-input, select, textarea {
+/* EQUIPAMIENTO*/
+.equip-item-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+.artifact-preview {
+  width: 60px; 
+  height: 60px;
+  background: #0f172a;
+  border: 1px solid #38bdf8;
+  border-radius: 12px;
+  flex-shrink: 0; 
+}
+
+.artifact-preview img {
+  width: 85%;
+  height: 85%;
+}
+
+.artifact-preview img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  animation: neon-pulse 2s infinite alternate;
+}
+
+.fields-column {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  flex: 1; 
+}
+
+.custom-dropdown {
+  flex: 2;
+  position: relative;
+  height: auto; 
+}
+
+.input-dropdown-manual {
+  width: 100%;
+  background: #0f172a !important;
+  border: 1px solid #334155;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+h2{
+  margin-bottom: 10px;
+}
+
+.slot-label {
+  flex: 0 0 80px; 
+  font-weight: bold;
+  color: #38bdf8;
+  text-align: center;
+}
+
+.stat-input {
+  flex: 1;
+  max-width: 160px;
+  border-style: dashed;
+  margin-bottom: 0 !important;
+}
+
+.selected-box {
+  background: #0f172a;
+  border: 1px solid #334155;
+  padding: 8px 12px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  height: 38px;
+  font-size: 13px;
+}
+
+.dropdown-options-container {
+  position: absolute;
+  bottom: 100%; 
+  left: 0;
+  width: max-content;
+  min-width: 100%;
+  max-width: 350px;
+  max-height: 220px;
+  overflow-y: auto;
+  background: #0f0f0f;
+  border: 1px solid #ff4655;
+  z-index: 1000;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0px -10px 20px rgba(0,0,0,0.8);
+  margin-bottom: 5px; 
+}
+
+.section-block:first-child .dropdown-options-container,
+.weapon-row .dropdown-options-container {
+  bottom: auto;
+  top: 100%;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.8);
+  margin-bottom: 0;
+  margin-top: 5px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 0.8rem;
+  color: var(--neon-cyan);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.selected-box-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-dropdown-manual {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  outline: none;
+}
+
+.input-dropdown-manual:focus {
+  border-color: #ff4655;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #1a1a1a;
+  font-size: 13px;
+}
+
+.option-item:hover {
+  background: #ff4655;
+  color: white;
+}
+
+.mini-art {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+textarea {
+    width: 100%;  
+    height: 120px;         
+    padding: 10px;        
+    font-size: 16px;        
+    font-family: Arial, sans-serif;
+    border: 2px solid #ccc; 
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    resize: vertical;
+    outline: none; 
+    box-sizing: border-box; 
+}
+
+textarea:focus {
+    border-color: #4CAF50; 
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Inputs y Botones Generales */
+input, select {
   width: 100%;
   padding: 12px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   border-radius: 10px;
   border: 1px solid #334155;
   background: #0f172a;
@@ -138,9 +346,19 @@ input, select, textarea {
   box-sizing: border-box;
 }
 
-textarea {
-  resize: vertical;
-  min-height: 120px;
+.slot-label { font-weight: bold; color: #38bdf8; }
+.stat-input { border-style: dashed; }
+
+.slot-label {
+  flex: 1;
+  min-width: 80px;
+  font-weight: bold;
+  color: #38bdf8;
+  padding: 8px 12px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #0f172a;
 }
 
 button {
@@ -151,15 +369,22 @@ button {
   color: #0f172a;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: 0.3s;
 }
 
-button:hover {
-  background: #0ea5e9;
-}
+
+button:hover { transform: scale(1.05); background: #0ea5e9; }
 
 .nav-buttons {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
+
+@keyframes neon-pulse {
+  from { filter: drop-shadow(0 0 2px #0ff); }
+  to { filter: drop-shadow(0 0 8px #0ff); }
+}
+
+.dropdown-options-container::-webkit-scrollbar { width: 5px; }
+.dropdown-options-container::-webkit-scrollbar-thumb { background: #ff4655; }
